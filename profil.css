@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+/* Declaration de variables en CSS */
+:root {
+    --color-white: white;
+    --color-black: black;
+    --color-grey: #CECECE;
+    --color-primary: #7385F2;
+    --script: #615DEC;
+    --green: #18D896;
+    --red: #FF6158;
+    --color1: linear-gradient(90deg, #9862F9, #8AAAFE);
+    --color2: linear-gradient(90deg, #FDB4B0, #FF749C);
+    --color3: linear-gradient(90deg, #FFC88B, #FF914E);
+    --color4: linear-gradient(90deg, #106DFE, #729FFE);
+}
+
+
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* CSS of Side Barre */
+
+.sideBarre__logo {
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--color-grey);
+}
+
+.sideBarre__cercle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    margin-right: 8px;
+}
+
+.sideBarre__logo h2 {
+    color: var(--color-primary);
+}
+
+
+/* CSS of NavBar */
+
+.mainContent nav {
+    height: 70px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.exit svg {
+    float: right;
+    margin-top: 10px;
+}
+
+.exit :hover {
+    stroke: #FF749C;
+}
+
+.exit {
+    cursor: pointer;
+}
+
+/* CSS of Box Content */
+
+.boxContent {
+    padding: 30px;
+    display: flex;
+    gap: 40px;
+    flex-direction: column;
+}
+
+/* CSS of First Row */
+
+.firstRow,
+.secondRow {
+    display: flex;
+    gap: 1em;
+}
+
+.cardOne,
+.cardTwo,
+.cardThree,
+.cardFour {
+    flex: 1;
+    height: 10em;
+    border-radius: 7px;
+    position: relative;
+    background: rgba( 255, 255, 255, 0 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.description {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--color-primary);
+}
+
+.description h3 {
+    font-size: 43px;
+}
+
+/* CSS of Second Row */
+
+.cardChart {
+    flex: 1;
+    padding: 5px;
+    background-color: var(--color-white);
+    border-radius: 7px;
+    box-shadow: 0px 0px 30px -18px rgba(0, 0, 0, 0.55);
+}
+
+/* CSS of Third Row */
+
+.thirdRow {
+    width: 100%;
+    box-shadow: 0px 0px 30px -18px rgba(0, 0, 0, 0.55);
+}
+
+.xp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    padding: 25px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card svg {
+    border-radius: 50%;
+    display: block;
+    fill: none;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    stroke-width: 48;
+    width: 100px;
+}
+
+.fill {
+    stroke: #f0f0f0;
+    stroke-width: 32;
+}
+
+.score {
+    left: 50%;
+    line-height: 1;
+    position: absolute;
+    top: 75px;
+    transform: translate(-50%, -50%);
+}
+
+.incorrect {
+    stroke: var(--color-white);
+    transform: rotate(-0.25turn);
+    transform-origin: center;
+}
+
+.correct {
+    stroke: var(--color-primary);
+    transform: scaleX(-1) rotate(-0.25turn);
+    transform-origin: center;
+}
+
+.breakdown {
+    display: flex;
+    font-size: 0.75em;
+    text-align: center;
+    margin-top: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    white-space: nowrap;
+}
+
+.right {
+    color: var(--color-primary);
+    width: 50%;
+}
+
+.wrong {
+    color: var(--color-white);
+    width: 50%;
+}
+
+.audits {
+    color: var(--color-primary);
+    background: rgba( 255, 255, 255, 0 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.topProjects{
+    color: var(--color-primary);
+    background: rgba( 255, 255, 255, 0 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 6px );
+    -webkit-backdrop-filter: blur( 6px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.topProjects text{
+    font-size: 3px;
+}
