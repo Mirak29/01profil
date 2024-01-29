@@ -27,13 +27,10 @@ export function loadCSS(path){
 }
 
 export function convertBytes(bytes) {
-    let kb = bytes / 1000;
-    if (Math.round(kb) >= 1000) {
-        let mb = kb / 100;
-        return [mb, 'MB'];
-    } else {
-        return [kb, 'KB'];
+    if (bytes/1000000 <1) {
+        return [(bytes/1000).toFixed(2), "KB"]
     }
+        return [(bytes/1000000).toFixed(2), "MB"]
 }
 
 const ranksDefinitions = [
