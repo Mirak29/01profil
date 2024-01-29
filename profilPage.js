@@ -20,7 +20,7 @@ export class Profil extends HTMLElement {
             return
         }
         let totalProjects = response.response.projects.aggregate.count
-        let ratio = Math.round(userInfos.auditRatio * 10) / 10
+        let ratio = userInfos.auditRatio.toFixed(2)
         let lvl = response.response.level[0].amount
         let audited = calculateAudits(userInfos.audited)
         let projects = extractProjectDetails(response.response.xps)
@@ -50,7 +50,7 @@ export class Profil extends HTMLElement {
                     <div class="cardTwo glassemorphism">
                         <div class="description">
                             <p>Total XP</p>
-                            <div class="xp"><h3>${Math.round(xp[0])}</h3><span> ${xp[1]}<span></div>
+                            <div class="xp"><h3>${xp[0]}</h3><span> ${xp[1]}<span></div>
                         </div>
                     </div>
                     <div class="cardThree glassemorphism">
