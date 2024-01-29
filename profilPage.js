@@ -1,21 +1,26 @@
-import {RemoveComponent, loadCSS, convertBytes, getRankName, calculateAudits, extractProjectDetails} from "./utils.js"
+import { RemoveComponent, loadCSS, convertBytes, getRankName, calculateAudits, extractProjectDetails } from "./utils.js"
 import { getUserData } from "./graphql.js"
-import {Login} from "./loginPage.js"
+import { Login } from "./loginPage.js"
 import { drowPieChart, drowBarChart } from "./drow.js"
 
-export class Profil extends HTMLElement{
-    constructor(){
+export class Profil extends HTMLElement {
+    constructor() {
         super()
-        document.title="Dashboard"
+        document.title = "Dashboard"
         RemoveComponent("login-user")
     }
-    async connectedCallback(){
+    async connectedCallback() {
         await loadCSS("./profil.css")
         const response = await getUserData();
         let userInfos = response.response.user[0]
         let xp = convertBytes(response.response.totalXp.aggregate.sum.amount)
+        console.log(userInfos.campus);
+        if (!userInfos.campus) {
+            this.Logout()
+            return
+        }
         let totalProjects = response.response.projects.aggregate.count
-        let ratio = Math.ceil(userInfos.auditRatio * 10)/10
+        let ratio = Math.round(userInfos.auditRatio * 10) / 10
         let lvl = response.response.level[0].amount
         let audited = calculateAudits(userInfos.audited)
         let projects = extractProjectDetails(response.response.xps)
@@ -59,20 +64,25 @@ export class Profil extends HTMLElement{
                         <p>Done Projects</p>
                         <h3>${totalProjects}</h3>                       
                     </div>
-                </div>                  
+                </div>
+
                 </div>
                 <div class="secondRow">
+                <div class="cardChart skills">
+                <h1>Best skills<h1> 
+                
+            </div>
                     <div class="cardChart audits">
                         <h1>Audits<h1>
                         ${drowPieChart(audited.total, audited.valid, audited.invalid)}
                     </div>
+                    
                 <div class="thirdRow">
                     <div class="cardChart topProjects">
                     <h1>Top XP Projects<h1>
                     ${drowBarChart(projects)}                       
                     </div
-                </div>
-                </div>       
+                </div>      
             </div>
         </div>
         `

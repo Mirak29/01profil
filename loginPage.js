@@ -15,7 +15,7 @@ export class Login extends HTMLElement{
 						<h1>Welcome back!</h1>
 
 						<div class="input-group col-md-8 col-md-offset-2">
-							<input type="text" name="username" class="input email" autocomplete="off" id=email>
+							<input type="text" name="username" class="input email" autocomplete="on" id=email>
 							<label>E-Mail/username</label>
 						</div>
 					
