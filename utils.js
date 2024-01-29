@@ -29,7 +29,7 @@ export function loadCSS(path){
 export function convertBytes(bytes) {
     let kb = bytes / 1000;
     if (Math.round(kb) >= 1000) {
-        let mb = Math.round(kb / 1000);
+        let mb = kb / 100;
         return [mb, 'MB'];
     } else {
         return [kb, 'KB'];
