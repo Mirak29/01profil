@@ -238,3 +238,48 @@ body {
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
+
+.skills div{
+    height: 30vh;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.skills svg{
+    width: 100%;
+    height: 25%;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 10px;
+    /* Largeur de la scrollbar */
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    /* Couleur de fond du thumb de la scrollbar */
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+    /* Couleur de fond du thumb de la scrollbar au survol */
+}
+
+@media screen and (max-width: 500px) {
+    .firstRow, .secondRow {
+        display: block;
+        width: 100%;
+    }
+
+    .skills, .audits{
+        width: 100%;
+    }
+
+    .glassemorphism, .cardChart{
+        margin-bottom: 10px;
+    }
+
+    .topProjects svg{
+        height: 100%;
+        width: 600px;
+    }
+}

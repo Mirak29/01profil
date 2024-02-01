@@ -1,19 +1,19 @@
-export function jsonify(formData){
-    let  valueq= [...formData]
+export function jsonify(formData) {
+    let valueq = [...formData]
     const obj = {};
     valueq.forEach(([key, value]) => {
-    obj[key]=value
+        obj[key] = value
     })
     return obj
 }
 
-export function RemoveComponent(name){
-    document.querySelectorAll(name).forEach((comp)=>{
+export function RemoveComponent(name) {
+    document.querySelectorAll(name).forEach((comp) => {
         comp.remove()
     })
 }
 
-export function loadCSS(path){
+export function loadCSS(path) {
     return new Promise((resolve, reject) => {
         const link = document.querySelector("link");
         if (link) {
@@ -27,10 +27,10 @@ export function loadCSS(path){
 }
 
 export function convertBytes(bytes) {
-    if (bytes/1000000 <1) {
-        return [(bytes/1000).toFixed(2), "KB"]
+    if (bytes / 1000000 < 1) {
+        return [(bytes / 1000).toFixed(2), "KB"]
     }
-        return [(bytes/1000000).toFixed(2), "MB"]
+    return [(bytes / 1000000).toFixed(2), "MB"]
 }
 
 const ranksDefinitions = [
@@ -103,4 +103,21 @@ export function extractProjectDetails(projects) {
         name: project.object.name,
         amount: project.amount
     }));
+}
+
+export function encodeBase64(str) {
+    var encoder = new TextEncoder();
+    var byteArray = encoder.encode(str);
+    var base64String = arrayBufferToBase64(byteArray);
+    return base64String;
+}
+
+function arrayBufferToBase64(buffer) {
+    var binary = '';
+    var bytes = new Uint8Array(buffer);
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+        binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary);
 }

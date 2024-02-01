@@ -18,8 +18,8 @@ export function drowPieChart(total, right, wrong){
         <h3>${total}</h3>
     </div>
     <div class="breakdown">
-      <div class="right"><strong>${right}</strong> valid</div>
-      <div class="wrong"><strong>${wrong}</strong> invalid</div>
+      <div class="right">${right} valid</div>
+      <div class="wrong">${wrong} invalid</div>
     </div>
   </div>
     </div>`
@@ -46,4 +46,17 @@ export function drowBarChart(projects){
   </svg>
   `;
   return content;
+}
+
+export function skillsEvo(skills){
+  let content = ""
+  skills.forEach(skill =>{
+    content += `<svg class="progress" viewBox="0 0 500 100">
+    <text pointer-events="none" x="0" dy="0" transform="translate(0,70)" fill="rgb(198,199,208)">${(skill.skill).split("_")[1].toUpperCase()}</text>
+    <path class="drop" style="fill:none;stroke:#d0d0d0;stroke-width:2;stroke-linecap:round;" d="m 50,80 c 0,0 60,-0.001 90,-0.001 30,0 60,0.001 90,0.001 30,0 60,-0.001 90,-0.001 30,0 90,0.001 90,0.001"></path>
+    <path class="range" style="fill: none; stroke: var(--color-primary); stroke-width: 8; stroke-linecap: round; stroke-dasharray: ${(skill.amount*500)/100}, 396;" d="m 50,80 c 0,0 60,-0.001 90,-0.001 30,0 60,0.001 90,0.001 30,0 60,-0.001 90,-0.001 30,0 90,0.001 90,0.001"></path>
+    <text pointer-events="none" x="420" dy="0" transform="translate(0,85)" fill=var(--color-primary)>${(skill.amount)}%</text>
+    </svg>`
+  });
+  return content
 }

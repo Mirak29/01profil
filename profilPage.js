@@ -1,7 +1,7 @@
 import { RemoveComponent, loadCSS, convertBytes, getRankName, calculateAudits, extractProjectDetails } from "./utils.js"
 import { getUserData } from "./graphql.js"
 import { Login } from "./loginPage.js"
-import { drowPieChart, drowBarChart } from "./drow.js"
+import { drowPieChart, drowBarChart, skillsEvo } from "./drow.js"
 
 export class Profil extends HTMLElement {
     constructor() {
@@ -25,6 +25,7 @@ export class Profil extends HTMLElement {
         let audited = calculateAudits(userInfos.audited)
         let projects = extractProjectDetails(response.response.xps)
         console.log("hello", response, projects);
+        let skills = userInfos.transactions 
         // console.log(sumAmount(response.response.allxp));
         this.innerHTML = `
         <!-- My Main Content -->
@@ -69,8 +70,10 @@ export class Profil extends HTMLElement {
                 </div>
                 <div class="secondRow">
                 <div class="cardChart skills">
-                <h1>Best skills<h1> 
-                
+                <h1>Skills<h1> 
+                <div>
+                    ${skillsEvo(skills)}
+                </div>
             </div>
                     <div class="cardChart audits">
                         <h1>Audits<h1>

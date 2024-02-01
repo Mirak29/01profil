@@ -1,5 +1,5 @@
 import { FetchData } from "./graphql.js"
-import {jsonify, loadCSS} from "./utils.js"
+import {jsonify, loadCSS, encodeBase64} from "./utils.js"
 
 export class Login extends HTMLElement{
     constructor(){
@@ -55,7 +55,8 @@ export class Login extends HTMLElement{
             let config = {
                 method: "POST",
                 headers: {
-                    "Authorization": `Basic ${window.btoa(`${user.username}:${user.password}`)}`
+                    "Authorization": `Basic ${encodeBase64(`${user.username}:${user.password}`)}`,
+                    "Content-Type": "application/json",
                 }
             }
             try {
